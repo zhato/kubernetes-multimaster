@@ -1,0 +1,5 @@
+.kube
+.vagrant
+admin.conf
+dashboard-admin.yaml
+ihko.yml
