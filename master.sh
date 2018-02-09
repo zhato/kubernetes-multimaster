@@ -13,12 +13,14 @@ swapoff -a
 # tar zxvf /shared/cni-plugins-amd64-v0.6.0.tgz
 # tar zxvf /shared/cni-amd64-v0.6.0.tgz
 
-kubeadm init \
---apiserver-advertise-address=$MASTERIP \
---apiserver-bind-port=8080 \
---token=$TOKEN \
---pod-network-cidr 10.244.0.0/16 \
---token-ttl 0
+# kubeadm init \
+# --apiserver-advertise-address=$MASTERIP \
+# --apiserver-bind-port=8080 \
+# --token=$TOKEN \
+# --pod-network-cidr 10.244.0.0/16 \
+# --token-ttl 0
+
+kubeadm init --config /shared/master_config.yaml
 
 mkdir -p $HOME/.kube
 sudo /bin/cp -a /etc/kubernetes/admin.conf $HOME/.kube/config
